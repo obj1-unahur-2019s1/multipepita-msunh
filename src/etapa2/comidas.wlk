@@ -1,4 +1,4 @@
-
+import pepita.*
 object alpiste {
 	method energiaPorGramo() { return 4 }
 }
@@ -46,18 +46,50 @@ object mijo{  // OK
 	}
 }
 
-object canelones{ // chequear este objeto y sus métodos no esta correcto
-	var salsa=1;
-	var queso=1;
+
+object canelones{ //OK CANELONES
+	var salsa=false;
+	var queso=false;
 	
-	method ponerSalsa(){salsa=1}
-	method sacarSalsa(){salsa=0}
-	method ponerQueso(){queso=1}
-	method sacarQueso(){queso=0}
+	method ponerSalsa(){salsa=true}
+	method sacarSalsa(){salsa=false}
+	method ponerQueso(){queso=true}
+	method sacarQueso(){queso=false}
+	
+	//metodos que tambien sirven para el get
+//	method sinNada(){
+//		salsa=false
+//		queso=false
+//	}
+//	
+//	method conSalsa(){
+//		salsa =true
+//		queso =false
+//
+//	}
+//    
+//   method conQueso(){
+//   	    queso = true
+//   	    salsa = false
+//   } 
+//   
+//   method completo(){
+//   	    queso = true
+//   	    salsa = true
+//   }
+	
+	
 	
 	method energiaPorGramo(){
-		if (salsa==1){return 5}
-		else if (queso==1){return 7}
-		else {return 20}
+		var valor=20; // esta variable se coloca dentro de este metodo que es que la utiliza 
+						//para que se use solo cuando se ejecuta, si se coloca arriba bajo el objeto 
+						//la variable se incrementará con cada ejecucion del metodo energiaPorGramo
+		
+		
+		if (salsa){valor = valor + 5}
+		if (queso){valor = valor + 7}
+		return valor
+		
 	}
+	
 }
